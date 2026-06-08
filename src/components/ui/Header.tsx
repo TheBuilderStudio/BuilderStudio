@@ -64,7 +64,7 @@ export const Header = () => {
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }
           }}
-          className="absolute left-1/2 -translate-x-1/2 cursor-pointer flex flex-row items-center gap-0 group"
+          className="flex-shrink-0 cursor-pointer flex flex-row items-center justify-center gap-0 group mx-auto md:mx-4"
         >
           <div className="relative w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-transparent transition-all duration-300 z-10 group-hover:drop-shadow-[0_0_15px_rgba(16,185,129,0.4)]">
             <div className="relative w-full h-full">

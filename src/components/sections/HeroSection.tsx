@@ -97,19 +97,17 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="font-black text-white text-[clamp(2.5rem,8vw,5rem)] leading-[1.05] tracking-[-0.03em] mb-8 max-w-[1000px] relative"
+          className="font-black text-white text-[2.2rem] sm:text-[3rem] md:text-[clamp(3rem,7vw,5rem)] leading-[1.1] md:leading-[1.05] tracking-[-0.02em] md:tracking-[-0.03em] mb-6 md:mb-8 max-w-[1000px] relative"
         >
           Turn Your{' '}
           <span className="relative inline-block">
             Idea
-
           </span>
-          <br />
-          Into a <span className="text-[#10B981]">Profitable</span>
-          <br />
-          <span className="relative inline-block text-[#10B981]">
+          <br className="hidden md:block" />
+          {' '}Into a <span className="text-[#10B981]">Profitable</span>
+          <br className="hidden md:block" />
+          {' '}<span className="relative inline-block text-[#10B981]">
             Startup
-
           </span>{' '}
           in 4 Weeks.
         </motion.h1>
