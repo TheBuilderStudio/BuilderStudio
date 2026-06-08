@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: Netlify CI/CD Pipeline
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ "main", "dev" ]
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,5 +23,19 @@ jobs:
     - name: Install Dependencies
       run: npm ci
       
-    - name: Build and Lint
+    - name: Build and Verify Code
       run: npm run build
+      
+    - name: Deploy to Netlify (Preview)
+      if: github.ref == 'refs/heads/dev' || github.event_name == 'pull_request'
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      run: npx netlify-cli deploy --build
+
+    - name: Deploy to Netlify (Production)
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      run: npx netlify-cli deploy --build --prod
