@@ -94,7 +94,7 @@ export const Header = () => {
           </button>
           <ContactModalTrigger>
             <button className="px-5 py-2.5 rounded-full bg-[#10B981] text-black font-semibold text-sm hover:bg-[#0e9d6d] hover:-translate-y-0.5 transition-all duration-300 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
-              Start Building
+              Start Building 🚀
             </button>
           </ContactModalTrigger>
         </div>
