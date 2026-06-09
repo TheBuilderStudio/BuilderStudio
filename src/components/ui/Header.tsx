@@ -6,6 +6,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { ContactModalTrigger } from "@/components/ui/ContactModalTrigger"
+import { ProjectFormModalTrigger } from "@/components/ui/ProjectFormModalTrigger"
 import { Menu, X } from "lucide-react"
 
 export const Header = () => {
@@ -40,7 +41,7 @@ export const Header = () => {
       }}
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
-      className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-[100] w-[95%] sm:w-[90%] max-w-[800px] rounded-2xl md:rounded-full bg-[#0A0A0A]/60 backdrop-blur-2xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-300 will-change-transform transform-gpu py-4 md:py-6"
+      className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-[100] w-[95%] sm:w-[90%] max-w-[800px] rounded-2xl md:rounded-full bg-[#0A0A0A]/60 backdrop-blur-2xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-300 will-change-transform transform-gpu py-2 md:py-4"
     >
       <div className="flex items-center justify-between px-6 md:px-8">
 
@@ -76,11 +77,11 @@ export const Header = () => {
         {/* Right Links (Desktop) */}
         <div className="hidden md:flex items-center gap-6 md:gap-8">
           <button onClick={() => scrollTo("why-us")} className="text-sm font-medium text-white/70 hover:text-white transition-colors">Why Us</button>
-          <ContactModalTrigger>
+          <ProjectFormModalTrigger>
             <button className="px-5 py-2.5 rounded-full bg-[#10B981] text-black font-semibold text-sm hover:bg-[#0e9d6d] hover:-translate-y-0.5 transition-all duration-300 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
               Start Building
             </button>
-          </ContactModalTrigger>
+          </ProjectFormModalTrigger>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -109,7 +110,7 @@ export const Header = () => {
               <div className="w-12 h-[1px] bg-white/10" />
               <button onClick={() => scrollTo("why-us")} className="text-base font-medium text-white hover:text-[#10B981] transition-colors w-full text-center py-2">Why Us</button>
               
-              <ContactModalTrigger>
+              <ProjectFormModalTrigger>
                 <div className="mt-4 w-full flex justify-center px-4">
                   <button 
                     onClick={() => setIsMenuOpen(false)}
@@ -118,7 +119,7 @@ export const Header = () => {
                     Start Building
                   </button>
                 </div>
-              </ContactModalTrigger>
+              </ProjectFormModalTrigger>
             </div>
           </motion.div>
         )}

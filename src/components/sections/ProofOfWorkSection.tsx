@@ -23,7 +23,8 @@ const products = [
     ],
     techStack: [
       { name: "Next.js", icon: "N" },
-      { name: "Spring", icon: "S" },
+      { name: "Spring Boot", icon: "S" },
+      { name: "LangChain", icon: "Lc" },
       { name: "Python", icon: "Py" },
       { name: "Postgres", icon: "Db" }
     ],
@@ -71,9 +72,10 @@ const products = [
     ],
     techStack: [
       { name: "Next.js", icon: "N" },
-      { name: "Spring", icon: "S" },
+      { name: "Spring Boot", icon: "S" },
       { name: "RAG", icon: "R" },
-      { name: "Postgres", icon: "Db" }
+      { name: "Postgres", icon: "Db" },
+      { name: "YouTube API", icon: "YT" }
     ],
     image: "/assets/study-wings.png",
     mobileImage: "/assets/study_wings_phonee.jpeg",

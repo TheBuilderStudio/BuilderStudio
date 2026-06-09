@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { MessageCircle } from "lucide-react"
 import { ContactModalTrigger } from "@/components/ui/ContactModalTrigger"
+import { ProjectFormModalTrigger } from "@/components/ui/ProjectFormModalTrigger"
 
 export const HeroSection = () => {
   return (
@@ -52,7 +53,7 @@ export const HeroSection = () => {
           { 
             tooltip: "Instagram", 
             icon: <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="#E1306C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>, 
-            href: "https://instagram.com/builderstudio.in",
+            href: "https://www.instagram.com/thebuilderstudio.in/",
             hoverClass: "hover:border-[#E1306C]/50 hover:bg-[#E1306C]/10 hover:shadow-[0_0_20px_rgba(225,48,108,0.2)]" 
           },
           { 
@@ -129,11 +130,11 @@ export const HeroSection = () => {
               Claim Your Free Strategy Call
             </button>
           </ContactModalTrigger>
-          <ContactModalTrigger>
+          <ProjectFormModalTrigger className="inline-block cursor-pointer w-full sm:w-auto">
             <button className="w-full sm:w-auto h-[48px] md:h-[56px] px-6 md:px-[32px] rounded-full bg-transparent border border-white/20 hover:border-white/40 hover:bg-white/5 text-white font-semibold text-[14px] md:text-[16px] transition-all duration-300 hover:-translate-y-[2px]">
               Start Building Today
             </button>
-          </ContactModalTrigger>
+          </ProjectFormModalTrigger>
         </motion.div>
       </div>
 
