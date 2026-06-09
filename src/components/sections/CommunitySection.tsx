@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { Users, CheckCircle2, ArrowRight } from "lucide-react"
+import { Users, CheckCircle2, ArrowRight, MessageSquare, Lightbulb, Globe, Key, TrendingUp, Target, Share2 } from "lucide-react"
 
 // Nodes for the network ecosystem
 const networkNodes = [
@@ -14,14 +14,14 @@ const networkNodes = [
 ]
 
 const benefits = [
-  "Product Feedback",
-  "Idea Validation",
-  "Build In Public Updates",
-  "Founder Discussions",
-  "Early Product Access",
-  "Growth Insights",
-  "Marketing Support",
-  "Distribution Channels",
+  { label: "Product Feedback", Icon: MessageSquare },
+  { label: "Idea Validation", Icon: Lightbulb },
+  { label: "Build In Public Updates", Icon: Globe },
+  { label: "Founder Discussions", Icon: Users },
+  { label: "Early Product Access", Icon: Key },
+  { label: "Growth Insights", Icon: TrendingUp },
+  { label: "Marketing Support", Icon: Target },
+  { label: "Distribution Channels", Icon: Share2 },
 ]
 
 export const CommunitySection = () => {
@@ -36,7 +36,7 @@ export const CommunitySection = () => {
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-10 items-center">
         
         {/* Left Column: Content */}
-        <div className="flex flex-col items-center lg:items-start text-center lg:text-left relative z-20">
+        <div className="flex flex-col items-center lg:items-start text-center lg:text-left relative z-20 order-2 lg:order-1">
           <motion.span 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -57,8 +57,8 @@ export const CommunitySection = () => {
           </motion.p>
 
           {/* Benefits Section */}
-          <div className="w-full mt-8 mb-8">
-            <div className="flex flex-wrap justify-center lg:justify-start gap-3">
+          <div className="w-full mt-8 mb-10">
+            <div className="flex flex-wrap sm:grid sm:grid-cols-2 justify-center sm:justify-start gap-2.5 md:gap-4 w-full mx-auto lg:mx-0">
               {benefits.map((benefit, index) => (
                 <motion.div
                   key={index}
@@ -66,11 +66,11 @@ export const CommunitySection = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.5 }}
-                  className="flex items-center gap-3 px-4 py-3 rounded-lg bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.05] transition-colors"
+                  className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-2 sm:gap-3 p-3 sm:px-5 sm:py-3.5 rounded-xl bg-white/[0.03] border border-white/[0.08] hover:bg-white/[0.08] transition-colors shadow-sm w-[110px] sm:w-full aspect-square sm:aspect-auto"
                 >
-                  <CheckCircle2 size={18} className="text-[#10B981] shrink-0" />
-                  <span className="text-[14px] md:text-[15px] text-white/90 font-medium">
-                    {benefit}
+                  <benefit.Icon className="text-[#10B981] shrink-0 w-6 h-6 sm:w-[18px] sm:h-[18px]" />
+                  <span className="text-[11px] sm:text-[13px] md:text-[15px] text-white/90 font-medium text-center sm:text-left leading-tight">
+                    {benefit.label}
                   </span>
                 </motion.div>
               ))}
@@ -102,7 +102,7 @@ export const CommunitySection = () => {
         </div>
 
         {/* Right Column: Network Visualization */}
-        <div className="relative w-full h-[380px] md:h-[600px] flex items-center justify-center">
+        <div className="relative w-full h-[380px] md:h-[600px] flex items-center justify-center order-1 lg:order-2">
           
           {/* Core Ambient Glow */}
           <div className="absolute inset-0 bg-[#10B981]/5 blur-[100px] rounded-full pointer-events-none z-0" />

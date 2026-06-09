@@ -174,10 +174,10 @@ export const WhyChooseUsSection = () => {
                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
               }
             }}
-            className="relative z-10 inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-[#10B981] text-black font-bold text-lg hover:bg-[#10B981]/90 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(16,185,129,0.3)] transition-all duration-300"
+            className="group relative z-10 flex sm:inline-flex items-center justify-center gap-2 md:gap-3 px-5 py-3.5 md:px-8 md:py-4 rounded-xl bg-[#10B981] text-black font-bold text-[14px] sm:text-base md:text-lg hover:bg-[#10B981]/90 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(16,185,129,0.3)] transition-all duration-300 w-full sm:w-auto"
           >
-            Secure My 4-Week Launch Plan
-            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            <span>Secure My 4-Week Launch Plan</span>
+            <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform shrink-0" />
           </button>
         </motion.div>
 

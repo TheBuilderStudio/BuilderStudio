@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
@@ -16,11 +17,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://thebuilderstudio.com'),
   title: {
     default: "Builder Studio | Turn Your Idea Into a Startup in 4 Weeks",
     template: "%s | Builder Studio"
   },
-  description: "Builder Studio partners with founders to validate ideas, engineer products, launch MVPs, and help them reach market faster. We don't just build features, we build businesses.",
+  description: "Builder Studio is a premier MVP Builder and App Development Agency. We partner with founders to validate ideas, engineer scalable Next.js and AI products, and launch profitable startups in 4 weeks. We don't just build features, we build businesses.",
   keywords: ["Startup Studio", "MVP Builder", "Product Studio", "Next.js Development", "Launch Startup", "App Development Agency", "Software Agency", "AI Startups"],
   authors: [{ name: "Builder Studio" }],
   creator: "Builder Studio",
@@ -32,7 +34,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Builder Studio | Turn Your Idea Into a Startup in 4 Weeks",
-    description: "We partner with founders to validate, build, launch, and scale digital products that create real impact and revenue.",
+    description: "Builder Studio is a premier MVP Builder and App Development Agency. We partner with founders to validate ideas, engineer scalable Next.js and AI products, and launch profitable startups in 4 weeks.",
     url: 'https://thebuilderstudio.com',
     siteName: 'Builder Studio',
     images: [
@@ -49,7 +51,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Builder Studio | Turn Your Idea Into a Startup in 4 Weeks',
-    description: 'We partner with founders to validate, build, launch, and scale digital products that create real impact and revenue.',
+    description: "Builder Studio is a premier MVP Builder and App Development Agency. We partner with founders to validate ideas, engineer scalable Next.js and AI products, and launch profitable startups in 4 weeks.",
     images: ['/assets/builder_studio_logo.png'],
   },
   robots: {
@@ -64,9 +66,16 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/assets/builder_studio_logo.png',
+    icon: [
+      { url: '/assets/builder_studio_logo.png' },
+      { url: '/assets/builder_studio_logo.png', type: 'image/png', sizes: '32x32' },
+      { url: '/assets/builder_studio_logo.png', type: 'image/png', sizes: '192x192' },
+      { url: '/assets/builder_studio_logo.png', type: 'image/png', sizes: '512x512' },
+    ],
     shortcut: '/assets/builder_studio_logo.png',
-    apple: '/assets/builder_studio_logo.png',
+    apple: [
+      { url: '/assets/builder_studio_logo.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
 };
 
@@ -80,7 +89,8 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#020202] text-white selection:bg-emerald-500/20">
+      <body suppressHydrationWarning className="min-h-full flex flex-col bg-[#020202] text-white selection:bg-emerald-500/20">
+        <GoogleAnalytics gaId="G-49MWYEHGEE" />
         <Header />
         <NoiseOverlay />
         <ScrollProgress />

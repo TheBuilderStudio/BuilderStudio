@@ -33,14 +33,14 @@ export const HeroSection = () => {
         <div className="absolute top-[65%] left-[-20vw] right-[-20vw] h-[100vh] rounded-[100%] border-t border-[#10B981] opacity-[0.08] blur-[8px]" />
       </div>
 
-      {/* Floating Social & Community Sidebar (Left) */}
+      {/* Floating Social & Community Sidebar (Left on Desktop, Right on Mobile) */}
       <motion.div 
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.2, delay: 0.8 }}
-        className="absolute left-6 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-30 hidden lg:flex"
+        className="absolute right-2 sm:right-4 lg:right-auto lg:left-6 top-1/2 -translate-y-1/2 flex flex-col gap-3 lg:gap-4 z-30 scale-[0.8] sm:scale-90 lg:scale-100 origin-right lg:origin-left"
       >
-        <div className="w-[1px] h-12 bg-gradient-to-b from-transparent to-white/10 mx-auto mb-2" />
+        <div className="w-[1px] h-8 lg:h-12 bg-gradient-to-b from-transparent to-white/10 mx-auto mb-1 lg:mb-2" />
         
         {[
           { 
@@ -60,12 +60,6 @@ export const HeroSection = () => {
             icon: <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="#0077B5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>, 
             href: "https://www.linkedin.com/company/thebuilderstudio/",
             hoverClass: "hover:border-[#0077B5]/50 hover:bg-[#0077B5]/10 hover:shadow-[0_0_20px_rgba(0,119,181,0.2)]" 
-          },
-          { 
-            tooltip: "YouTube", 
-            icon: <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="#FF0000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>, 
-            href: "#",
-            hoverClass: "hover:border-[#FF0000]/50 hover:bg-[#FF0000]/10 hover:shadow-[0_0_20px_rgba(255,0,0,0.2)]" 
           }
         ].map((item, i) => (
           <a 
@@ -77,39 +71,40 @@ export const HeroSection = () => {
           >
             {item.icon}
             
-            {/* Tooltip */}
-            <span className="absolute left-[calc(100%+16px)] px-3 py-1.5 rounded-md bg-[#0A0A0A] border border-white/10 text-xs font-medium text-white opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none whitespace-nowrap">
+            {/* Tooltip (Hidden on Mobile) */}
+            <span className="hidden lg:block absolute left-[calc(100%+16px)] px-3 py-1.5 rounded-md bg-[#0A0A0A] border border-white/10 text-xs font-medium text-white opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none whitespace-nowrap">
               {item.tooltip}
             </span>
           </a>
         ))}
 
-        <div className="w-[1px] h-12 bg-gradient-to-t from-transparent to-white/10 mx-auto mt-2" />
+        <div className="w-[1px] h-8 lg:h-12 bg-gradient-to-t from-transparent to-white/10 mx-auto mt-1 lg:mt-2" />
       </motion.div>
 
       {/* =========================================
           CONTENT SYSTEM WITH SKETCH LAYERS
           ========================================= */}
-      <div className="relative z-10 w-full max-w-[1200px] mx-auto flex flex-col items-center justify-center text-center px-4 pt-32">
+      <div className="relative z-10 w-full max-w-[1200px] mx-auto flex flex-col items-center justify-center text-center px-4 pt-40 md:pt-48">
         
         {/* Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="font-black text-white text-[2.2rem] sm:text-[3rem] md:text-[clamp(3rem,7vw,5rem)] leading-[1.1] md:leading-[1.05] tracking-[-0.02em] md:tracking-[-0.03em] mb-6 md:mb-8 max-w-[1000px] relative"
+          className="font-black text-white text-[2.2rem] sm:text-[3rem] md:text-[clamp(3rem,7vw,5rem)] leading-[1.1] md:leading-[1.05] tracking-[-0.02em] md:tracking-[-0.03em] mb-6 md:mb-8 max-w-[1000px] relative px-2 sm:px-4 md:px-0 will-change-transform transform-gpu"
         >
           Turn Your{' '}
           <span className="relative inline-block">
             Idea
           </span>
-          <br className="hidden md:block" />
-          {' '}Into a <span className="text-[#10B981]">Profitable</span>
-          <br className="hidden md:block" />
-          {' '}<span className="relative inline-block text-[#10B981]">
+          <br className="block" />
+          Into a <span className="text-[#10B981]">Profitable</span>
+          <br className="block" />
+          <span className="relative inline-block text-[#10B981]">
             Startup
           </span>{' '}
-          in 4 Weeks.
+          in 4<br className="block md:hidden" />
+          <span className="hidden md:inline">{' '}</span>Weeks.
         </motion.h1>
 
         {/* Description */}
@@ -117,7 +112,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
-          className="text-[16px] sm:text-[18px] md:text-[20px] font-normal leading-[1.8] text-white/60 max-w-[700px] mb-[48px] relative"
+          className="text-[15px] sm:text-[18px] md:text-[20px] font-normal leading-[1.8] text-white/60 max-w-[700px] mb-[48px] relative px-8 sm:px-12 md:px-0 will-change-transform transform-gpu"
         >
           We partner with founders to validate, build, and scale digital products that generate <span className="text-white font-semibold">actual revenue</span>. Stop paying for code. Start paying for <span className="text-[#10B981] font-semibold">outcomes</span>.
         </motion.p>
@@ -127,15 +122,15 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20, rotate: 0 }}
           animate={{ opacity: 1, y: 0, rotate: 0 }}
           transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
-          className="relative flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto px-4 sm:px-0"
+          className="relative flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto px-4 sm:px-0 will-change-transform transform-gpu"
         >
           <ContactModalTrigger>
-            <button className="w-full sm:w-auto h-[56px] px-[32px] rounded-full bg-white hover:bg-neutral-200 text-black font-semibold text-[16px] transition-all duration-300 hover:-translate-y-[2px]">
+            <button className="w-full sm:w-auto h-[48px] md:h-[56px] px-6 md:px-[32px] rounded-full bg-white hover:bg-neutral-200 text-black font-semibold text-[14px] md:text-[16px] transition-all duration-300 hover:-translate-y-[2px]">
               Claim Your Free Strategy Call
             </button>
           </ContactModalTrigger>
           <ContactModalTrigger>
-            <button className="w-full sm:w-auto h-[56px] px-[32px] rounded-full bg-transparent border border-white/20 hover:border-white/40 hover:bg-white/5 text-white font-semibold text-[16px] transition-all duration-300 hover:-translate-y-[2px]">
+            <button className="w-full sm:w-auto h-[48px] md:h-[56px] px-6 md:px-[32px] rounded-full bg-transparent border border-white/20 hover:border-white/40 hover:bg-white/5 text-white font-semibold text-[14px] md:text-[16px] transition-all duration-300 hover:-translate-y-[2px]">
               Start Building Today
             </button>
           </ContactModalTrigger>

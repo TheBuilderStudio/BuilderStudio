@@ -53,7 +53,7 @@ const products = [
     ],
     image: "/assets/contextnode.png",
     mobileImage: "/assets/contextnode_phonee.jpeg",
-    url: "contextnode.com"
+    url: "www.contextnode.in"
   },
   {
     id: "study-wings",
@@ -77,7 +77,7 @@ const products = [
     ],
     image: "/assets/study-wings.png",
     mobileImage: "/assets/study_wings_phonee.jpeg",
-    url: "studywings.com"
+    url: "quanty.vercel.app"
   }
 ]
 
@@ -105,29 +105,29 @@ export const ProofOfWorkSection = () => {
       </div>
 
       {/* Tabs Switcher */}
-      <div className="relative z-20 mb-20 flex justify-center w-full overflow-x-auto pb-4 no-scrollbar">
-        <div className="flex items-center p-1.5 rounded-[8px] bg-white/[0.03] border border-white/[0.08] backdrop-blur-xl min-w-max mx-auto px-2">
+      <div className="relative z-20 mb-10 md:mb-20 w-full flex justify-center">
+        <div className="flex w-full sm:w-auto items-center p-1 md:p-1.5 rounded-[10px] md:rounded-[12px] bg-white/[0.03] border border-white/[0.08] backdrop-blur-xl">
           {products.map((product, idx) => {
             const isActive = activeTab === idx
             return (
               <button
                 key={product.id}
                 onClick={() => setActiveTab(idx)}
-                className={`relative flex items-center gap-3 px-6 py-3 rounded-[6px] transition-colors duration-300 ${isActive ? "text-white" : "text-white/60 hover:text-white"}`}
+                className={`relative flex-1 sm:flex-none flex items-center justify-center gap-1.5 sm:gap-2.5 md:gap-3 px-1 py-2 sm:px-4 md:px-6 md:py-3 rounded-[8px] transition-colors duration-300 ${isActive ? "text-white" : "text-white/60 hover:text-white"}`}
               >
                 {isActive && (
                   <motion.div
                     layoutId="activeTabBg"
-                    className="absolute inset-0 bg-[#0A0A0A] border border-[#10B981]/50 rounded-[6px] shadow-[0_0_15px_rgba(16,185,129,0.15)]"
+                    className="absolute inset-0 bg-[#0A0A0A] border border-[#10B981]/50 rounded-[8px] shadow-[0_0_15px_rgba(16,185,129,0.15)]"
                     transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                   />
                 )}
-                <span className="relative z-10 flex items-center justify-center w-6 h-6 rounded overflow-hidden">
-                  <span className={`w-full h-full flex items-center justify-center text-[10px] font-bold ${product.iconBg}`}>
+                <span className="relative z-10 flex items-center justify-center w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rounded overflow-hidden shrink-0">
+                  <span className={`w-full h-full flex items-center justify-center text-[8px] sm:text-[9px] md:text-[10px] font-bold ${product.iconBg}`}>
                     {product.icon}
                   </span>
                 </span>
-                <span className="relative z-10 font-medium text-[15px]">{product.shortName}</span>
+                <span className="relative z-10 font-medium text-[11px] sm:text-[14px] md:text-[15px] whitespace-nowrap">{product.shortName}</span>
               </button>
             )
           })}
@@ -143,7 +143,7 @@ export const ProofOfWorkSection = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center lg:items-start"
+            className="flex flex-col-reverse lg:flex-row gap-8 lg:gap-12 items-center lg:items-start"
           >
             {/* Left Content */}
             <div className="flex flex-col w-full lg:w-[40%] flex-shrink-0">
@@ -196,17 +196,17 @@ export const ProofOfWorkSection = () => {
               href={`https://${activeProduct.url}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group w-full lg:w-[60%] relative flex items-center justify-center cursor-pointer min-h-[300px] lg:min-h-[400px] mt-8 lg:mt-0"
+              className="group w-full lg:w-[60%] relative flex items-center justify-center cursor-pointer min-h-[280px] sm:min-h-[350px] lg:min-h-[400px] mt-8 lg:mt-0 pb-8 sm:pb-12 lg:pb-0"
             >
               {/* Hover Overlay for entire group */}
               <div className="absolute inset-0 z-40 flex items-center justify-center pointer-events-none">
-                <div className="w-16 h-16 rounded-full bg-black/60 border border-white/20 backdrop-blur-md flex items-center justify-center transform scale-50 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-500 ease-out shadow-2xl">
-                  <ArrowUpRight className="w-8 h-8 text-white" />
+                <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/60 border border-white/20 backdrop-blur-md flex items-center justify-center transform scale-50 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-500 ease-out shadow-2xl">
+                  <ArrowUpRight className="w-6 h-6 md:w-8 md:h-8 text-white" />
                 </div>
               </div>
 
               {/* Desktop Browser Mockup */}
-              <div className="w-[85%] lg:w-[90%] mr-auto rounded-[16px] lg:rounded-[24px] bg-[#0A0A0A] border border-white/[0.08] overflow-hidden shadow-2xl shadow-black/50 relative z-10 transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_20px_40px_rgba(16,185,129,0.15)] flex flex-col">
+              <div className="w-[90%] sm:w-[85%] lg:w-[90%] mr-auto rounded-[12px] sm:rounded-[16px] lg:rounded-[24px] bg-[#0A0A0A] border border-white/[0.08] overflow-hidden shadow-2xl shadow-black/50 relative z-10 transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_20px_40px_rgba(16,185,129,0.15)] flex flex-col">
                 {/* Browser Header */}
                 <div className="h-8 lg:h-12 border-b border-white/[0.08] bg-[#0A0A0A] flex items-center px-3 lg:px-4 gap-2 relative">
                   <div className="flex gap-1.5 lg:gap-2">
@@ -228,6 +228,7 @@ export const ProofOfWorkSection = () => {
                       alt={`${activeProduct.name} Desktop Dashboard`}
                       width={1200}
                       height={800}
+                      sizes="(max-width: 1024px) 90vw, 1200px"
                       className="w-full h-auto block object-cover object-top"
                       priority
                     />
@@ -236,9 +237,9 @@ export const ProofOfWorkSection = () => {
               </div>
 
               {/* Mobile Phone Mockup */}
-              <div className="absolute right-0 bottom-[-5%] lg:bottom-[-10%] w-[35%] sm:w-[30%] lg:w-[25%] rounded-[20px] lg:rounded-[32px] bg-[#050505] border-[4px] lg:border-[6px] border-[#1A1A1A] overflow-hidden shadow-2xl shadow-black/80 z-20 transition-transform duration-500 group-hover:-translate-y-6 group-hover:shadow-[0_30px_60px_rgba(16,185,129,0.2)]">
+              <div className="absolute right-0 bottom-0 lg:bottom-[-10%] w-[35%] sm:w-[30%] lg:w-[25%] rounded-[16px] sm:rounded-[20px] lg:rounded-[32px] bg-[#050505] border-[3px] sm:border-[4px] lg:border-[6px] border-[#1A1A1A] overflow-hidden shadow-2xl shadow-black/80 z-20 transition-transform duration-500 group-hover:-translate-y-4 lg:group-hover:-translate-y-6 group-hover:shadow-[0_30px_60px_rgba(16,185,129,0.2)]">
                 {/* Phone Notch */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[40%] h-[12px] lg:h-[18px] bg-[#1A1A1A] rounded-b-[8px] lg:rounded-b-[12px] z-30" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[40%] h-[10px] sm:h-[12px] lg:h-[18px] bg-[#1A1A1A] rounded-b-[6px] sm:rounded-b-[8px] lg:rounded-b-[12px] z-30" />
 
                 {/* Mobile Image Container */}
                 <div className="relative w-full">
@@ -247,6 +248,7 @@ export const ProofOfWorkSection = () => {
                     alt={`${activeProduct.name} Mobile View`}
                     width={400}
                     height={800}
+                    sizes="(max-width: 1024px) 35vw, 400px"
                     className="w-full h-auto block"
                   />
                 </div>

@@ -129,6 +129,7 @@ export const CTASection = () => {
                       src={src} 
                       alt="Founder Avatar" 
                       fill 
+                      sizes="40px"
                       className="object-cover"
                     />
                   </div>
