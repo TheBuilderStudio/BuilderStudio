@@ -1,7 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { MessageCircle } from "lucide-react"
+import { Users } from "lucide-react"
+import Image from "next/image"
 import { ContactModalTrigger } from "@/components/ui/ContactModalTrigger"
 import { ProjectFormModalTrigger } from "@/components/ui/ProjectFormModalTrigger"
 
@@ -45,8 +46,8 @@ export const HeroSection = () => {
         
         {[
           { 
-            tooltip: "WhatsApp Community", 
-            icon: <svg viewBox="0 0 24 24" fill="#25D366" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>, 
+            tooltip: "Join Builder Studio", 
+            icon: <Users size={20} color="#25D366" />, 
             href: "https://chat.whatsapp.com/KmxvbaoVVn1Kd9Cux4eDS4",
             hoverClass: "hover:border-[#25D366]/50 hover:bg-[#25D366]/10 hover:shadow-[0_0_20px_rgba(37,211,102,0.2)]" 
           },
@@ -87,6 +88,31 @@ export const HeroSection = () => {
           ========================================= */}
       <div className="relative z-10 w-full max-w-[1200px] mx-auto flex flex-col items-center justify-center text-center px-4 pt-40 md:pt-48">
         
+        {/* Plugio Announcement */}
+        <motion.a
+          href="https://plugio.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          className="group flex items-center gap-3 px-4 py-2 rounded-full bg-[#10B981]/10 border border-[#10B981]/20 hover:border-[#10B981]/40 hover:bg-[#10B981]/20 transition-all duration-300 mb-6 md:mb-8 cursor-pointer shadow-[0_0_15px_rgba(16,185,129,0.1)]"
+        >
+          <div className="relative w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden flex-shrink-0 bg-white">
+            <Image 
+              src="/assets/plugio-logo.jpg" 
+              alt="Plugio Logo" 
+              fill 
+              sizes="(max-width: 768px) 24px, 28px"
+              className="object-cover"
+            />
+          </div>
+          <span className="text-[12px] sm:text-[14px] font-medium text-white/90">
+            <strong className="text-white">Plugio is Live!</strong> The AI Content Distribution Platform
+          </span>
+          <span className="text-[#10B981] font-bold group-hover:translate-x-1 transition-transform">→</span>
+        </motion.a>
+
         {/* Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
@@ -138,23 +164,7 @@ export const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* Floating WhatsApp Chat Button */}
-      <motion.a
-        href="https://wa.me/917827843470?text=Hi%20Kundan%2C%20I%20want%20to%20discuss%20my%20MVP%20idea%20with%20you.%20Can%20we%20schedule%20a%20call%3F"
-        target="_blank"
-        rel="noopener noreferrer"
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 1 }}
-        className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(37,211,102,0.4)] hover:scale-110 hover:bg-[#20bd5a] transition-all duration-300 group"
-      >
-        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" className="translate-x-[1px] translate-y-[1px]">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
-        </svg>
-        <span className="absolute right-full mr-3 bg-black/80 backdrop-blur-md text-white text-[12px] font-medium px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-          Chat with us!
-        </span>
-      </motion.a>
+
     </section>
   )
 }

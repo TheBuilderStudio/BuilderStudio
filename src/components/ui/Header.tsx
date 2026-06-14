@@ -6,7 +6,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { ContactModalTrigger } from "@/components/ui/ContactModalTrigger"
-import { ProjectFormModalTrigger } from "@/components/ui/ProjectFormModalTrigger"
 import { Menu, X } from "lucide-react"
 
 export const Header = () => {
@@ -77,11 +76,14 @@ export const Header = () => {
         {/* Right Links (Desktop) */}
         <div className="hidden md:flex items-center gap-6 md:gap-8">
           <button onClick={() => scrollTo("why-us")} className="text-sm font-medium text-white/70 hover:text-white transition-colors">Why Us</button>
-          <ProjectFormModalTrigger>
-            <button className="px-5 py-2.5 rounded-full bg-[#10B981] text-black font-semibold text-sm hover:bg-[#0e9d6d] hover:-translate-y-0.5 transition-all duration-300 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
-              Start Building
-            </button>
-          </ProjectFormModalTrigger>
+          <a 
+            href="https://chat.whatsapp.com/KmxvbaoVVn1Kd9Cux4eDS4"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2.5 rounded-full bg-[#10B981] text-black font-semibold text-sm hover:bg-[#0e9d6d] hover:-translate-y-0.5 transition-all duration-300 shadow-[0_0_15px_rgba(16,185,129,0.3)] inline-block"
+          >
+            Join Builder Studio
+          </a>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -110,16 +112,17 @@ export const Header = () => {
               <div className="w-12 h-[1px] bg-white/10" />
               <button onClick={() => scrollTo("why-us")} className="text-base font-medium text-white hover:text-[#10B981] transition-colors w-full text-center py-2">Why Us</button>
               
-              <ProjectFormModalTrigger>
-                <div className="mt-4 w-full flex justify-center px-4">
-                  <button 
-                    onClick={() => setIsMenuOpen(false)}
-                    className="w-full max-w-[200px] px-8 py-3.5 rounded-full bg-[#10B981] text-black font-bold text-base hover:bg-[#0e9d6d] transition-all shadow-[0_0_15px_rgba(16,185,129,0.2)]"
-                  >
-                    Start Building
-                  </button>
-                </div>
-              </ProjectFormModalTrigger>
+              <div className="mt-4 w-full flex justify-center px-4">
+                <a 
+                  href="https://chat.whatsapp.com/KmxvbaoVVn1Kd9Cux4eDS4"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="w-full max-w-[200px] px-8 py-3.5 rounded-full bg-[#10B981] text-black font-bold text-base hover:bg-[#0e9d6d] transition-all shadow-[0_0_15px_rgba(16,185,129,0.2)] text-center flex items-center justify-center"
+                >
+                  Join Builder Studio
+                </a>
+              </div>
             </div>
           </motion.div>
         )}
