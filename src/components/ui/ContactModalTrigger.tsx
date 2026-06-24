@@ -4,7 +4,6 @@ import { useState, useEffect, ReactNode } from "react"
 import { createPortal } from "react-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import { X } from "lucide-react"
-import Cal, { getCalApi } from "@calcom/embed-react"
 
 interface ContactModalTriggerProps {
   children: ReactNode;
@@ -15,20 +14,8 @@ export const ContactModalTrigger = ({ children }: ContactModalTriggerProps) => {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true)
-      ; (async function () {
-        const cal = await getCalApi();
-        cal("ui", {
-          theme: "dark",
-          styles: {
-            branding: {
-              brandColor: "#10B981"
-            }
-          },
-          hideEventTypeDetails: false,
-          layout: "month_view"
-        });
-      })();
   }, [])
 
   return (
@@ -67,12 +54,11 @@ export const ContactModalTrigger = ({ children }: ContactModalTriggerProps) => {
                     <X size={20} />
                   </button>
 
-                  {/* Cal.com Embed Container */}
-                  <div className="w-full h-full p-2 md:p-8 pt-16 md:pt-16 overflow-y-auto custom-scrollbar bg-black/40">
-                    <Cal
-                      calLink="builderstudio/builder-studio-strategy-call"
-                      style={{ width: "100%", height: "100%", overflow: "scroll" }}
-                      config={{ theme: 'dark' }}
+                  <div className="w-full h-full p-2 md:p-8 pt-16 md:pt-16 overflow-hidden bg-black/40">
+                    <iframe
+                      src="https://cal.com/builderstudio/builder-studio-strategy-call?theme=dark"
+                      style={{ width: "100%", height: "100%", border: "none" }}
+                      title="Schedule Strategy Call"
                     />
                   </div>
                 </div>
