@@ -70,7 +70,7 @@ export const ContactModalTrigger = ({ children }: ContactModalTriggerProps) => {
                   {/* Cal.com Embed Container */}
                   <div className="w-full h-full p-2 md:p-8 pt-16 md:pt-16 overflow-y-auto custom-scrollbar bg-black/40">
                     <Cal
-                      calLink="rohit-kumar-hddjkk/builder-studio-strategy-call"
+                      calLink="builderstudio/builder-studio-strategy-call"
                       style={{ width: "100%", height: "100%", overflow: "scroll" }}
                       config={{ theme: 'dark' }}
                     />
